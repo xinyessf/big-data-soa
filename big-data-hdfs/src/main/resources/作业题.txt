@@ -1,0 +1,12 @@
+1、实现读取一个文件的指定block块的内容
+
+2、假如有a.txt  b.txt c.txt 在hdfs的目录 /wordcount/input/ 中
+请写一个程序，来统计上述目录中的所有文件中的单词出现的次数，然后将统计结果输出到 hdfs的目录 /wordcount/output/res.txt 中，
+结果文件res.txt的内容如下：
+hello	89
+tom	20
+jim	25
+...
+
+
+3、对上面的wordcount程序实现分布式并行运行多个实例，每个实例处理输入数据集中的一部分

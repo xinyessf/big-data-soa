@@ -1,4 +1,4 @@
-package com.huanyu;
+package com.huanyu.hdfs;
 
 import java.io.IOException;
 import java.net.URI;
