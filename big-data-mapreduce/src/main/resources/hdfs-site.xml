@@ -1,0 +1,6 @@
+<configuration>
+<property>
+<name>hdfs.p</name>
+<value>3</value>
+</property>
+</configuration>

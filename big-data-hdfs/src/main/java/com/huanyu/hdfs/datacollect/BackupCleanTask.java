@@ -19,7 +19,7 @@ public class BackupCleanTask extends TimerTask {
 	public void run() {
 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd-HH");
-		long now = new Date().getTime();
+		long now =System.currentTimeMillis();
 		try {
 			// 探测本地备份目录
 			File backupBaseDir = new File("d:/logs/backup/");

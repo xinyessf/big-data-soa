@@ -1,0 +1,11 @@
+<configuration>
+	<property>
+		<name>top.n</name>
+		<value>5</value>
+	</property>
+
+	<property>
+		<name>mygirlfriend</name>
+		<value>angelababy</value>
+	</property>
+</configuration>
