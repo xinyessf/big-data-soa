@@ -35,7 +35,7 @@ public class HdfsClientDemo {
 		conf.set("dfs.blocksize", "64m");
 		// 构造一个访问指定HDFS系统的客户端对象:
 		// 参数1:——HDFS系统的URI，参数2：——客户端要特别指定的参数，参数3：客户端的身份（用户名）
-		FileSystem fs = FileSystem.get(new URI("hdfs://hdp-01:9000/"), conf, "root");
+		FileSystem fs = FileSystem.get(new URI("hdfs://192.168.73.128:9000/"), conf, "root");
 		// 上传一个文件到HDFS中
 		fs.copyFromLocalFile(new Path("D:/log/log.log"), new Path("/aaa/"));
 
@@ -50,7 +50,7 @@ public class HdfsClientDemo {
 		conf.set("dfs.replication", "2");
 		conf.set("dfs.blocksize", "64m");
 
-		fs = FileSystem.get(new URI("hdfs://hdp-01:9000/"), conf, "root");
+		fs = FileSystem.get(new URI("hdfs://192.168.73.128:9000/"), conf, "root");
 
 	}
 

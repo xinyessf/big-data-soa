@@ -25,7 +25,7 @@ public class JobSubmitter {
 		
 		// 在代码中设置JVM系统参数，用于给job对象来获取访问HDFS的用户身份
 		System.setProperty("HADOOP_USER_NAME", "root");
-		
+		System.setProperty("hadoop.home.dir", "D:\\bigData\\hadoop-2.8.1");
 		
 		Configuration conf = new Configuration();
 		// 1、设置job运行时要访问的默认文件系统

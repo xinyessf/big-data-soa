@@ -11,6 +11,7 @@
         <module>big-data-mapreduce</module>
         <module>big-data-spark</module>
         <module>big-data-kafka</module>
+        <module>big-data-hbase</module>
     </modules>
     <packaging>pom</packaging>
 

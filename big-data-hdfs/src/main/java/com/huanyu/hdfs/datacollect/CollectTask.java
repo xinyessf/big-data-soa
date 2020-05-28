@@ -22,7 +22,6 @@ import org.apache.log4j.Logger;
  * @date: 2020/5/9 14:30
  */
 
-
 public class CollectTask extends TimerTask {
 
 	@Override
