@@ -24,6 +24,10 @@ public class ConsumerDemo {
 		//--from-beginning
 		props.put("auto.offset.reset", "smallest");
 
+
+
+
+
 		ConsumerConfig config = new ConsumerConfig(props);
 		ConsumerConnector consumer =Consumer.createJavaConsumerConnector(config);
 		Map<String, Integer> topicCountMap = new HashMap<String, Integer>();

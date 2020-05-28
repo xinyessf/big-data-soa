@@ -30,15 +30,22 @@ object HiveOnSpark1 {
     //val sql: DataFrame = spark.sql("load data local inpath 'f:/wordcount/spark/tactics.txt' into table t_dm_goip_original_tactics ")
     //新增中间表
     //val sql2: DataFrame = spark.sql("CREATE  TABLE  t_dm_goip_original_tactics(phone STRING COMMENT '被叫号码',province STRING COMMENT '省份',city STRING COMMENT '城市',call_time STRING COMMENT '通话时间',call_duration INT COMMENT '通话时长',fraud_type STRING COMMENT '违规类型') partitioned by(day string) row format delimited fields terminated by ','")
+    //建库
+    // val result1: DataFrame = spark.sql("create database iaf")
+
     //删表
-    //val result1: DataFrame = spark.sql("drop table t_dm_mvtech_tactics")
-    //val sql1: DataFrame = spark.sql("CREATE  TABLE t_dm_mvtech_tactics(phone STRING COMMENT '电话号码',province STRING COMMENT '省份',city STRING COMMENT '城市',start_time BIGINT COMMENT '开始时间',fraud_type STRING COMMENT '违规类型',phone_m STRING COMMENT '被叫电话号码') partitioned by(day string) row format delimited fields terminated by ','")
-   // val sql2: DataFrame = spark.sql("CREATE  TABLE  t_dm_mvtech_tactics(phone STRING COMMENT '加密后电话号码',province STRING COMMENT '省份',city STRING COMMENT '城市',start_time BIGINT COMMENT '开始时间',fraud_type STRING COMMENT '违规类型',phone_m STRING COMMENT '未被加密电话号码')partitioned by(day string)row format delimited fields terminated by ','stored as textfile TBLPROPERTIES (\"parquet.compression\"=\"SNAPPY\")")
-   // val sql: DataFrame = spark.sql("load data local inpath 'f:/wordcount/spark/tactics.txt'  into table t_dm_mvtech_tactics partition(day='20200516')")
+   //val result1: DataFrame = spark.sql("drop table iaf.t_dm_mvtech_tactics")
+    //val sql1: DataFrame = spark.sql("CREATE  TABLE iaf.t_dm_mvtech_tactics(phone STRING COMMENT '电话号码',province STRING COMMENT '省份',city STRING COMMENT '城市',start_time BIGINT COMMENT '开始时间',fraud_type STRING COMMENT '违规类型',phone_m STRING COMMENT '被叫电话号码') partitioned by(day string) row format delimited fields terminated by ','")
+    // val sql2: DataFrame = spark.sql("CREATE  TABLE  t_dm_mvtech_tactics(phone STRING COMMENT '加密后电话号码',province STRING COMMENT '省份',city STRING COMMENT '城市',start_time BIGINT COMMENT '开始时间',fraud_type STRING COMMENT '违规类型',phone_m STRING COMMENT '未被加密电话号码')partitioned by(day string)row format delimited fields terminated by ','stored as textfile TBLPROPERTIES (\"parquet.compression\"=\"SNAPPY\")")
+    //val sql: DataFrame = spark.sql("load data local inpath 'f:/wordcount/spark/tactics.txt'  into table iaf.t_dm_mvtech_tactics partition(day='20200511')")
 
     //查表
-    val result: DataFrame = spark.sql("select * from t_dm_mvtech_tactics")
+   val result: DataFrame = spark.sql("select * from iaf.t_dm_mvtech_tactics")
+   // val result2: DataFrame = spark.sql("select date_add('2017-06-16 15:00:01',0.1)")
+    //
 
+
+    //val result3: DataFrame = spark.sql("show databases")
     //result.collectAsList();
 
     result.show()
