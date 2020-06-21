@@ -13,8 +13,8 @@
         <module>big-data-kafka</module>
         <module>big-data-hbase</module>
         <module>big-data-kafka-1</module>
+        <module>big-data-es</module>
         <module>big-data-scala</module>
-        <module>big-data-es-soa</module>
 
     </modules>
     <packaging>pom</packaging>
