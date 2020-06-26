@@ -23,7 +23,7 @@ public class TestFile {
     public static void main(String[] args) throws Exception {
         String content = ",18338698381,2020-05-20 12:13:10,【充值提醒】尊敬的客户l感谢您的充值l请关注您的余额变化";
         BufferedWriter writer = new BufferedWriter(new FileWriter("E:\\wordcount\\cmcc\\2.txt"));
-        for (int i = 0; i < 3000000; i++) {
+        for (int i = 0; i < 15000000; i++) {
             String ab = i + content + "\r\n";
             writer.write(ab);
         }
