@@ -1,21 +1,16 @@
 package cn.huanyu.kafka.demo;
 
-import org.apache.kafka.clients.consumer.ConsumerRecords;
-import org.apache.kafka.clients.consumer.KafkaConsumer;
-
-import java.io.FileInputStream;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
+import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.apache.kafka.clients.consumer.ConsumerRecords;
+import org.apache.kafka.clients.consumer.KafkaConsumer;
+
 public class ConsumerDemo {
     public static void main(String[] args) throws Exception{
-        //读取文件,读取一行操作,然后加上后缀
-
-        FileInputStream fileInputStream = new FileInputStream("E:\\wordcount\\cmcc\\t_ods_cmcc_block_sm.txt");
-
-        for (int i = 0; i <5 ; i++) {
-
-        }
         Properties properties = new Properties();
         properties.put("bootstrap.servers", "hmaster:9092");
         properties.put("group.id", "group-1");

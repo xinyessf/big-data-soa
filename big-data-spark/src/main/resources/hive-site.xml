@@ -37,7 +37,7 @@
 
   <property>
     <name>javax.jdo.option.ConnectionPassword</name>
-    <value>toortoor</value>
+    <value>123</value>
     <description>password to use against metastore database</description>
   </property>
   
