@@ -1,4 +1,0 @@
-1,zhangsan,23,99
-2,lisi,28,91
-2,lisi,28,91
-3,wangwu,22,99
