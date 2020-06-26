@@ -4,3 +4,6 @@
 
 target
 *.iml
+/metastore_db
+/spark-warehouse
+/*.log
