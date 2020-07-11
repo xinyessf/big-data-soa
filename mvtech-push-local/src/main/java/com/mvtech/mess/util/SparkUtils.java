@@ -10,16 +10,16 @@ import org.apache.spark.sql.SparkSession;
 public class SparkUtils {
     public static SparkSession getSession() {
         /*本地测试*/
-     /*  return SparkSession.builder()
+      return SparkSession.builder()
                 .appName("HiveOnSpark2")
                 .master("local[*]")
                 .enableHiveSupport()
-                .getOrCreate();*/
-        SparkSession sparkSession = SparkSession.builder().appName("mess_mvtech").enableHiveSupport().getOrCreate();
+                .getOrCreate();
+       /*SparkSession sparkSession = SparkSession.builder().appName("mess_mvtech").enableHiveSupport().getOrCreate();
         sparkSession.conf().set("spark.sql.parquet.binaryAsString", "true");
         sparkSession.conf().set("spark.hadoop.hive.metastore.uris", "thrift://hdp-01:9083");
         sparkSession.conf().set("spark.hadoop.hive.metastore.warehouse.dir", "hdfs://user/hive/warehouse");
-        return sparkSession;
+        return sparkSession;*/
     }
 
     public static void close(SparkSession sparkSession) {

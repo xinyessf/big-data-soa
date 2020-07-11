@@ -1,6 +1,6 @@
 package com.mvtech.mess;
 
-import com.mvtech.mess.filter.PushDataToKafka;
+import com.mvtech.mess.filter.PushDataToKafkaLocal;
 import com.mvtech.mess.util.PropUtils;
 import org.apache.log4j.Logger;
 
@@ -26,7 +26,7 @@ public class Starter {
         //初始化数据
         PropUtils.init();
         //推送
-        PushDataToKafka pushDataToKafka = new PushDataToKafka();
+        PushDataToKafkaLocal pushDataToKafka = new PushDataToKafkaLocal();
         pushDataToKafka.pushDataToKafka();
     }
 }

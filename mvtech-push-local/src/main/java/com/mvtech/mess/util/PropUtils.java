@@ -25,8 +25,7 @@ public class PropUtils {
     private static long UPDATE_TIME;
 
     private static final Lock REEN_LOCK = new ReentrantLock();
-    //private static String path = "E:\\weizhi\\module-jsfz-soa\\mess-push-day\\src\\main\\resources\\mess.properties";
-    private static String path = "/home/mx_projects/mvtech_admin/iaf/pro_files/mvtech_mess/mess.properties";
+    private static String path = "E:\\MySummaryStudy\\big-data-soa\\mvtech-push-local\\src\\main\\resources\\messlocal.properties";
     //kafka队列
     public static String CMCC_QUEUE = null;
     public static String CUCC_QUEUE = null;
