@@ -11,7 +11,7 @@ object SQLDemo1 {
 
   def main(args: Array[String]): Unit = {
 
-    var path="spark-warehouse//wordcount//man.txt"
+    var path="E:\\wordcount\\spark\\man.txt"
 
     //提交的这个程序可以连接到Spark集群中
     val conf = new SparkConf().setAppName("SQLDemo1").setMaster("local[*]")
@@ -40,7 +40,6 @@ object SQLDemo1 {
     //导入隐式转换
     import sqlContext.implicits._
     val bdf: DataFrame = boyRDD.toDF
-
     //变成DF后就可以使用两种API进行编程了
     //把DataFrame先注册临时表
     bdf.registerTempTable("t_boy")

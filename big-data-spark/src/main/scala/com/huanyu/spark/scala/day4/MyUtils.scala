@@ -52,7 +52,7 @@ object MyUtils {
   def data2MySQL(it: Iterator[(String, Int)]): Unit = {
     //一个迭代器代表一个分区，分区中有多条数据
     //先获得一个JDBC连接
-    val conn: Connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/bigdata?characterEncoding=UTF-8", "root", "123")
+    val conn: Connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/bigdata?characterEncoding=UTF-8", "root", "toortoor")
     //将数据通过Connection写入到数据库
     val pstm: PreparedStatement = conn.prepareStatement("INSERT INTO access_log VALUES (?, ?)")
     //将分区中的数据一条一条写入到MySQL中

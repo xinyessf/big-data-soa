@@ -13,13 +13,15 @@ object GroupFavTeacher4 {
 
   def main(args: Array[String]): Unit = {
 
-    val topN = args(1).toInt
+    val topN = 5
+    var path = "E:\\wordcount\\spark\\teacher.log"
+
 
     val conf = new SparkConf().setAppName("GroupFavTeacher2").setMaster("local[4]")
     val sc = new SparkContext(conf)
 
     //指定以后从哪里读取数据
-    val lines: RDD[String] = sc.textFile(args(0))
+    val lines: RDD[String] = sc.textFile(path)
     //整理数据
     val sbjectTeacherAndOne: RDD[((String, String), Int)] = lines.map(line => {
       val index = line.lastIndexOf("/")
@@ -28,8 +30,6 @@ object GroupFavTeacher4 {
       val subject = new URL(httpHost).getHost.split("[.]")(0)
       ((subject, teacher), 1)
     })
-
-
     //计算有多少学科
     val subjects: Array[String] = sbjectTeacherAndOne.map(_._1._1).distinct().collect()
 
@@ -55,7 +55,7 @@ object GroupFavTeacher4 {
     //val r: Array[((String, String), Int)] = sorted.collect()
     //println(r.toBuffer)
 
-    sorted.saveAsTextFile("/Users/zx/Desktop/out")
+    sorted.saveAsTextFile("E:\\wordcount\\spark\\wordCountResult1")
 
 
     sc.stop()

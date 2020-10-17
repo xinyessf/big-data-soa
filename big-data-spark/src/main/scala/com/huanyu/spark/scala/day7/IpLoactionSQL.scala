@@ -9,8 +9,9 @@ import org.apache.spark.sql.{DataFrame, Dataset, SparkSession}
 object IpLoactionSQL {
 
   def main(args: Array[String]): Unit = {
-    var ip="spark-warehouse//wordcount//ip.txt"
-    var access="spark-warehouse//wordcount//access.log"
+    var access = "E:\\wordcount\\ip\\access.log"
+
+    var ip = "E:\\wordcount\\ip\\ip.txt"
 
 
     val spark = SparkSession

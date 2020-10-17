@@ -12,9 +12,9 @@ object IpLoaction2 {
 
   def main(args: Array[String]): Unit = {
 
-    var accessPath = "spark-warehouse//wordcount//access.log"
+    var accessPath = "E:\\wordcount\\ip\\access.log"
 
-    var ipPath = "spark-warehouse//wordcount//ip.txt"
+    var ipPath = "E:\\wordcount\\ip\\ip.txt"
 
     val conf = new SparkConf().setAppName("IpLoaction1").setMaster("local[4]")
 

@@ -5,30 +5,29 @@ import java.util.Properties
 import org.apache.spark.sql.{DataFrame, Dataset, Row, SparkSession}
 
 /**
-  * Created by zx on 2017/5/13.
+  * 1.从mysql种过滤
+  * 2.将数据filter,然后写入到文件
+  * 3.将数据保存到mysql
   */
 object JdbcDataSource {
 
   def main(args: Array[String]): Unit = {
-    var ip="spark-warehouse//wordcount//write"
-
+    var ip="E:\\wordcount\\spark\\white"
     val spark = SparkSession.builder().appName("JdbcDataSource")
       .master("local[*]")
       .getOrCreate()
 
     import spark.implicits._
-
     //load这个方法会读取真正mysql的数据吗？
     val logs: DataFrame = spark.read.format("jdbc").options(
       Map("url" -> "jdbc:mysql://localhost:3306/bigdata",
         "driver" -> "com.mysql.jdbc.Driver",
         "dbtable" -> "logs",
         "user" -> "root",
-        "password" -> "123")
+        "password" -> "toortoor")
     ).load()
 
     //logs.printSchema()
-
 
     //logs.show()
 
@@ -53,11 +52,11 @@ object JdbcDataSource {
 
     //reslut.write.text(ip+"text");
 
-    reslut.write.json(ip+"//json")
+    reslut.write.json(ip+"\\json")
 
-    reslut.write.csv(ip+"//csv")
+    reslut.write.csv(ip+"\\csv")
 
-    reslut.write.parquet(ip+"//parquet")
+    reslut.write.parquet(ip+"\\parquet")
 
 
     reslut.show()

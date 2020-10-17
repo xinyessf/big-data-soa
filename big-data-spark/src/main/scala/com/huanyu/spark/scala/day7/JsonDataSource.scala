@@ -8,7 +8,7 @@ import org.apache.spark.sql.{DataFrame, SparkSession}
 object JsonDataSource {
 
   def main(args: Array[String]): Unit = {
-    var path="spark-warehouse//wordcount//man.txt"
+    var path="E:\\wordcount\\spark\\white\\json"
 
     val spark = SparkSession.builder().appName("JdbcDataSource")
       .master("local[*]")
@@ -19,7 +19,7 @@ object JsonDataSource {
     //指定以后读取json类型的数据(有表头)
     val jsons: DataFrame = spark.read.json(path)
 
-    val filtered: DataFrame = jsons.where($"age" <=500)
+    val filtered: DataFrame = jsons.where($"age" <=110)
 
 
     filtered.printSchema()

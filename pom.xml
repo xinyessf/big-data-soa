@@ -16,6 +16,7 @@
         <module>big-data-scala</module>
         <module>big-data-es-soa</module>
         <module>mvtech-push-local</module>
+        <module>big-data-hive</module>
 
     </modules>
     <packaging>pom</packaging>

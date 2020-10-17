@@ -15,7 +15,7 @@ import scala.collection.mutable
 object GroupFavTeacher3 {
 
   def main(args: Array[String]): Unit = {
-    var path = "spark-warehouse//wordcount//teacher.log"
+    var path = "E:\\wordcount\\spark\\teacher.log"
 
     val topN = 3
 

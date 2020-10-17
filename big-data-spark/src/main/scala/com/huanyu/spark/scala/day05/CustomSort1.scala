@@ -35,11 +35,8 @@ object CustomSort1 {
 
     //将RDD里面装的User类型的数据进行排序
     val sorted: RDD[User] = userRDD.sortBy(u => u)
-
     val r = sorted.collect()
-
     println(r.toBuffer)
-
     sc.stop()
 
   }

@@ -11,18 +11,17 @@ import org.apache.spark.sql.{DataFrame, Dataset, SparkSession}
 object IpLoactionSQL2 {
 
   def main(args: Array[String]): Unit = {
-    var ip="spark-warehouse//wordcount//ip.txt"
-    var access="spark-warehouse//wordcount//access.log"
+    var access = "E:\\wordcount\\ip\\access.log"
+
+    var ip = "E:\\wordcount\\ip\\ip.txt"
 
     val spark = SparkSession
       .builder()
       .appName("JoinTest")
       .master("local[*]")
       .getOrCreate()
-
     //取到HDFS中的ip规则
     import spark.implicits._
-
     val rulesLines:Dataset[String] = spark.read.textFile(ip)
     //整理ip规则数据()
     val rluesDataset = rulesLines.map(line => {
@@ -74,11 +73,6 @@ object IpLoactionSQL2 {
     val r = spark.sql("SELECT ip2Province(ip_num) province, COUNT(*) counts FROM v_log GROUP BY province ORDER BY counts DESC")
 
     r.show()
-
-
     spark.stop()
-
-
-
   }
 }

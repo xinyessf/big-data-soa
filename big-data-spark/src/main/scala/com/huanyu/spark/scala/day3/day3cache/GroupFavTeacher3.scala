@@ -1,4 +1,4 @@
-package com.huanyu.spark.scala.day3cache
+package com.huanyu.spark.scala.day3.day3cache
 
 import java.net.URL
 
@@ -10,7 +10,7 @@ import scala.collection.mutable
 /**
   * Created by zx on 2017/10/8.
   */
-object GroupFavTeacher4 {
+object GroupFavTeacher3 {
 
   def main(args: Array[String]): Unit = {
 
@@ -30,33 +30,29 @@ object GroupFavTeacher4 {
       ((subject, teacher), 1)
     })
 
+    //聚合，将学科和老师联合当做key
+    val reduced: RDD[((String, String), Int)] = sbjectTeacherAndOne.reduceByKey(_+_)
 
     //计算有多少学科
-    val subjects: Array[String] = sbjectTeacherAndOne.map(_._1._1).distinct().collect()
+    val subjects: Array[String] = reduced.map(_._1._1).distinct().collect()
 
     //自定义一个分区器，并且按照指定的分区器进行分区
-    val sbPatitioner = new SubjectParitioner2(subjects)
+    val sbPatitioner = new SubjectParitioner(subjects);
 
-    //聚合，聚合是就按照指定的分区器进行分区
-    //该RDD一个分区内仅有一个学科的数据
-    val reduced: RDD[((String, String), Int)] = sbjectTeacherAndOne.reduceByKey(sbPatitioner, _+_)
+    //partitionBy按照指定的分区规则进行分区
+    //调用partitionBy时RDD的Key是(String, String)
+    val partitioned: RDD[((String, String), Int)] = reduced.partitionBy(sbPatitioner)
 
     //如果一次拿出一个分区(可以操作一个分区中的数据了)
-    val sorted: RDD[((String, String), Int)] = reduced.mapPartitions(it => {
+    val sorted: RDD[((String, String), Int)] = partitioned.mapPartitions(it => {
       //将迭代器转换成list，然后排序，在转换成迭代器返回
       it.toList.sortBy(_._2).reverse.take(topN).iterator
-
-      //即排序，有不全部加载到内存
-
-      //长度为5的一个可以排序的集合
-
     })
 
-    //收集结果
-    //val r: Array[((String, String), Int)] = sorted.collect()
-    //println(r.toBuffer)
+    //
+    val r: Array[((String, String), Int)] = sorted.collect()
 
-    sorted.saveAsTextFile("/Users/zx/Desktop/out")
+    println(r.toBuffer)
 
 
     sc.stop()
@@ -66,7 +62,7 @@ object GroupFavTeacher4 {
 }
 
 //自定义分区器
-class SubjectParitioner2(sbs: Array[String]) extends Partitioner {
+class SubjectParitioner(sbs: Array[String]) extends Partitioner {
 
   //相当于主构造器（new的时候回执行一次）
   //用于存放规则的一个map

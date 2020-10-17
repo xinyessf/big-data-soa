@@ -1,4 +1,4 @@
-package com.huanyu.spark.scala.day3cache
+package com.huanyu.spark.scala.day3.day3cache
 
 import java.net.URL
 

@@ -35,8 +35,6 @@ object UdafTest {
     val result = range.agg(geomean($"id").as("geomean"))
 
     result.show()
-
-
     spark.stop()
 
   }

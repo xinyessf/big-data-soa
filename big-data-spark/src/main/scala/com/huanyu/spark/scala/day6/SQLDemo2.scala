@@ -6,12 +6,14 @@ import org.apache.spark.sql.{DataFrame, Row, SQLContext}
 import org.apache.spark.{SparkConf, SparkContext}
 
 /**
-  * Created by zx on 2017/10/13.
+  * 1.读取文件
+  * 2.将文件映射到struct
+  * 3.写sql查询
   */
 object SQLDemo2 {
 
   def main(args: Array[String]): Unit = {
-    var path="spark-warehouse//wordcount//man.txt"
+    var path="E:\\wordcount\\spark\\man.txt"
 
     //提交的这个程序可以连接到Spark集群中
     val conf = new SparkConf().setAppName("SQLDemo2").setMaster("local[*]")

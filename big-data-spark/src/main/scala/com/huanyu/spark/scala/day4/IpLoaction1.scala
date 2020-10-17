@@ -4,17 +4,20 @@ import org.apache.spark.rdd.RDD
 import org.apache.spark.{SparkConf, SparkContext}
 
 /**
-  * Created by zx on 2017/10/9.
+  * 1.读取本地文件
+  * 2.获取ip,操作IP的数据
+  * 3.将统计分析,写入到文件
   */
+
 object IpLoaction1 {
 
   def main(args: Array[String]): Unit = {
 
     val conf = new SparkConf().setAppName("IpLoaction1").setMaster("local[*]")
 
-    var accessPath = "spark-warehouse//wordcount//access.log"
+    var accessPath = "E:\\wordcount\\ip\\access.log"
 
-    var ipPath = "spark-warehouse//wordcount//ip.txt"
+    var ipPath = "E:\\wordcount\\ip\\ip.txt"
 
     val sc = new SparkContext(conf)
 

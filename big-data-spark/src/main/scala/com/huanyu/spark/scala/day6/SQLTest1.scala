@@ -12,7 +12,7 @@ object SQLTest1 {
 
   def main(args: Array[String]): Unit = {
 
-    var path="spark-warehouse//wordcount//man.txt"
+    var path="E:\\wordcount\\spark\\man.txt"
 
     //spark2.x SQL的编程API(SparkSession)
     //是spark2.x SQL执行的入口

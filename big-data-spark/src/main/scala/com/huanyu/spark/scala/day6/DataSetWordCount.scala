@@ -7,7 +7,7 @@ import org.apache.spark.sql.{DataFrame, Dataset, SparkSession}
   */
 object DataSetWordCount {
 
-  var path="spark-warehouse//wordcount//man.txt"
+  var path="E:\\wordcount\\spark\\man.txt"
 
   def main(args: Array[String]): Unit = {
 

@@ -3,14 +3,16 @@ package com.huanyu.spark.scala.day6
 import org.apache.spark.sql.{DataFrame, Dataset, SparkSession}
 
 /**
-  * Created by zx on 2017/10/13.
+  * 读取文件一行
+  * 将数据封装成一行
+  * 注册试图
+  * 查询统计数据
   */
 object SQLWordCount {
 
   def main(args: Array[String]): Unit = {
 
-    var path="spark-warehouse//wordcount//man.txt"
-
+    var path = "E:\\wordcount\\spark\\man.txt"
     //创建SparkSession
     val spark = SparkSession.builder()
       .appName("SQLWordCount")

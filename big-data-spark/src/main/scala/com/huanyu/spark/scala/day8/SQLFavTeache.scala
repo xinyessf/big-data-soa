@@ -11,13 +11,13 @@ object SQLFavTeacher {
 
   def main(args: Array[String]): Unit = {
 
-    val topN = args(1).toInt
+    val topN =3
 
     val spark = SparkSession.builder().appName("RowNumberDemo")
       .master("local[4]")
       .getOrCreate()
 
-    val lines: Dataset[String] = spark.read.textFile(args(0))
+    val lines: Dataset[String] = spark.read.textFile("E:\\wordcount\\spark\\teacher.log")
 
     import spark.implicits._
 
@@ -43,8 +43,11 @@ object SQLFavTeacher {
 
     //val temp2 = spark.sql(s"SELECT *, row_number() over(order by counts desc) g_rk FROM (SELECT subject, teacher, counts, row_number() over(partition by subject order by counts desc) sub_rk FROM v_temp_sub_teacher_counts) temp2 WHERE sub_rk <= $topN")
 
-    val temp2 = spark.sql(s"SELECT *, dense_rank() over(order by counts desc) g_rk FROM (SELECT subject, teacher, counts, row_number() over(partition by subject order by counts desc) sub_rk FROM v_temp_sub_teacher_counts) temp2 WHERE sub_rk <= $topN")
+    //val temp2 = spark.sql(s"SELECT *, dense_rank() over(order by counts desc) g_rk FROM (SELECT subject, teacher, counts, row_number() over(partition by subject order by counts desc) sub_rk FROM v_temp_sub_teacher_counts) temp2 WHERE sub_rk <= $topN")
 
+    val temp2 = spark.sql(s"select * from v_temp_sub_teacher_counts order by counts desc limit $topN" )
+
+    //val temp2 = spark.sql(s"select * from v_temp_sub_teacher_counts order by counts desc")
 
     temp2.show()
 

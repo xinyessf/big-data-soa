@@ -14,7 +14,7 @@ object ParquetDataSource {
       .getOrCreate()
 
     //指定以后读取json类型的数据
-    val parquetLine: DataFrame = spark.read.parquet("/Users/zx/Desktop/parquet")
+    val parquetLine: DataFrame = spark.read.parquet("E:\\wordcount\\spark\\white\\parquet")
     //val parquetLine: DataFrame = spark.read.format("parquet").load("/Users/zx/Desktop/pq")
 
     parquetLine.printSchema()

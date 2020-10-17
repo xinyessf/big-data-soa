@@ -3,14 +3,13 @@ package com.huanyu.spark.scala.day8
 import org.apache.spark.sql.{DataFrame, SparkSession}
 
 /**
-  * Created by zx on 2017/10/16.
+  *
   */
 object JoinTest {
 
   def main(args: Array[String]): Unit = {
-    var path="spark-warehouse//wordcount//man.txt"
-
-
+   // var path="spark-warehouse//wordcount//man.txt"
+    var path="E:\\wordcount\\spark\\man.txt"
     val spark = SparkSession.builder().appName("CsvDataSource")
       .master("local[*]")
       .getOrCreate()
