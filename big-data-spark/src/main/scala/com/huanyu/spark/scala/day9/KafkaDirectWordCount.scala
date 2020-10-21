@@ -11,6 +11,9 @@ import org.apache.spark.streaming.kafka.{HasOffsetRanges, KafkaUtils, OffsetRang
 import org.apache.spark.streaming.{Duration, StreamingContext}
 
 /**
+  * 1.读取kafka中消息
+  * 2.kafaka中消息进行聚合计算
+  * 3.打印聚合计算的消息
   *
   */
 object KafkaDirectWordCount {
@@ -45,18 +48,15 @@ object KafkaDirectWordCount {
       //从头开始读取数据
       "auto.offset.reset" -> kafka.api.OffsetRequest.SmallestTimeString
     )
-
     //zookeeper 的host 和 ip，创建一个 client,用于跟新偏移量量的
     //是zookeeper的客户端，可以从zk中读取偏移量数据，并更新偏移量
     val zkClient = new ZkClient(zkQuorum)
-
     //查询该路径下是否字节点（默认有字节点为我们自己保存不同 partition 时生成的）
     // /g001/offsets/wordcount/0/10001"
     // /g001/offsets/wordcount/1/30001"
     // /g001/offsets/wordcount/2/10001"
     //zkTopicPath  -> /g001/offsets/wordcount/
     val children = zkClient.countChildren(zkTopicPath)
-
     var kafkaStream: InputDStream[(String, String)] = null
 
     //如果 zookeeper 中有保存 offset，我们会利用这个 offset 作为 kafkaStream 的起始位置

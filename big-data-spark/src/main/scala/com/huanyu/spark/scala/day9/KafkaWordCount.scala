@@ -6,7 +6,10 @@ import org.apache.spark.streaming.kafka.KafkaUtils
 import org.apache.spark.streaming.{Seconds, StreamingContext}
 
 /**
-  * Created by zx on 2017/10/17.
+  * 1.读取kafka中消息
+  * 2.kafaka中消息进行聚合计算
+  * 3.打印聚合计算的消息
+  *
   */
 object KafkaWordCount {
 

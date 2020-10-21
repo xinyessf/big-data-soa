@@ -12,7 +12,7 @@ import org.apache.spark.streaming.kafka.{HasOffsetRanges, KafkaUtils, OffsetRang
 import org.apache.spark.streaming.{Duration, StreamingContext}
 
 /**
-  * Created by zx on 2017/7/31.
+  * 1.读取kafka
   */
 object KafkaDirectWordCountV2 {
 
